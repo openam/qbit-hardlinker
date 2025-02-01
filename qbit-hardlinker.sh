@@ -25,6 +25,9 @@ if [ -z "$download_path" ]; then
   exit 1
 fi
 
+# see what the download path looks like
+echo -e "\n$(date +%Y-%m-%d\ %H.%M.%S) Starting with download path: $download_path" >> "$log_file"
+
 # Create destination directory if it doesn't exist
 mkdir -p "$destination"
 
@@ -65,4 +68,4 @@ done
 IFS=$OLDIFS
 
 echo "qbit-hardlinker task successful"
-[ "$enable_logging" = true ] && echo "qbit-hardlinker task completed" >> "$log_file"
+[ "$enable_logging" = true ] && echo "$(date +%Y-%m-%d\ %H.%M.%S) qbit-hardlinker task completed" >> "$log_file"
