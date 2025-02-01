@@ -40,7 +40,7 @@ create_hardlink() {
 }
 
 # Save current IFS
-OLDIFS=$IFS
+OLD_IFS=$IFS
 # Set IFS to newline only
 IFS=$'\n'
 
@@ -73,7 +73,7 @@ done
 [ "$enable_cleanup" = true ] && find $destination -mindepth 2 -type d -empty -exec rmdir {} \; 2>/dev/null
 
 # Restore original IFS
-IFS=$OLDIFS
+IFS=$OLD_IFS
 
 echo "qbit-hardlinker task successful"
 [ "$enable_logging" = true ] && echo "$(date +%Y-%m-%d\ %H.%M.%S) qbit-hardlinker task completed" >> "$log_file"
