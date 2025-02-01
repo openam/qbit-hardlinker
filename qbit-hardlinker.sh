@@ -57,6 +57,14 @@ find "$download_path" -type f | while read -r file; do
     # Extract relative path
     relative_path="${file#"$base_path"/}"
 
+    # check if relative path has any folders in it, and create them if needed
+    if [[ $relative_path == *"/"* ]]; then
+        dir_path="${relative_path%/*}"
+        echo "Dir path: $dir_path"
+        mkdir -p "$destination/$dir_path"
+        [ "$enable_logging" = true ] && echo "Created directory structure: $destination/$dir_path" >> "$log_file"
+    fi
+
     # Create hard link
     create_hardlink "$file" "$destination/$relative_path"
 done
