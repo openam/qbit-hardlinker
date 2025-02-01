@@ -4,16 +4,16 @@
 download_path="$1"
 
 # This is the base path that qbittorent downloads into
-base_path="/media/qbittorrent/data"
+base_path="/data/torrents"
 
 # The destination folder 
 #
 # This is where we want our hardlinks to end up, must be on the same filesystem.
-destination="/media/qbittorrent/done"
+destination="/data/torrents/done"
 
 # Optional logging
 enable_logging=true
-log_file="/media/sdh1/dgibbons/qbit-linker.log"
+log_file="/config/qbit-linker.log"
 
 # Optional empty directory cleanup
 enable_cleanup=false
